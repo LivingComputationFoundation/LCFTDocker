@@ -61,8 +61,12 @@ Environment Variables:
 
 ## Running on Windows 10
 
-This container has been tested on Windows 10 using [VcXsrv](https://sourceforge.net/projects/vcxsrv/). There is a relatively useful tutorial for connecting docker containers to the display using Windows here: https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde
+WARNING: So far, this container has ONLY been tested on Linux.
+
+However, a previous version of this container was tested on Windows 10 using [VcXsrv](https://sourceforge.net/projects/vcxsrv/). There is a relatively useful tutorial for connecting docker containers to the display using Windows here: https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde
 
 ### Running on Mac OS X
 
-This was tested on Mac OS 10+ using [XQuartz](https://www.xquartz.org/). After installation, be sure to open XQuartz.app and verify under Settings > Privacy that you have enabled both "Allow connections from network clients" and "Authenticate connections" and restart XQuartz. You do not need to set `X11_PATH` if using the default `DISPLAY=host.docker.internal:0`.
+WARNING: So far, this container has ONLY been tested on Linux.
+
+Again, however, a previous version of this container was tested on Mac OS 10+ using [XQuartz](https://www.xquartz.org/). After installation, be sure to open XQuartz.app and verify under Settings > Privacy that you have enabled both "Allow connections from network clients" and "Authenticate connections" and restart XQuartz. You do not need to set `X11_PATH` if using the default `DISPLAY=host.docker.internal:0`.
