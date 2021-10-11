@@ -15,8 +15,9 @@ RUN git clone https://github.com/DaveAckley/MFM.git && \
     git checkout v5.0.5 && \
     make
 
-COPY . /usr/app/ULAM
-RUN cd ULAM && \
+WORKDIR /usr/app
+RUN git clone https://github.com/DaveAckley/ULAM.git && \
+    cd ULAM && \
     make -f rebuild.mk
 
 WORKDIR /usr/app
