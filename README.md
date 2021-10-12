@@ -17,18 +17,18 @@ Docker version 20.10.9, build c2ea9bc
 
 ## Quick Start
 
-If you're on a Linux based system, you should be able to run `bash docker.sh run`. This does a few things:
+If you're on a Linux based system, you should be able to run `./init.sh` in this repo. This does a few things:
 
-1. Builds the Dockerfile in this directory and tags the container as `ulam:latest`.
-2. Generates a file `.tmp/Dockerfile` using `ulam:latest` as a base. This container adds the current `$USER` to the container to ensure that read/writes happen properly between the container and the host environment. This container is tagged as `ulam-local:latest`.
-3. Finally, launches `ulam-local` mounts the X11 Server to forward the display and also mounts `$HOME` for local read / write.
+1. If needed, generates a file `~/.lfct/.tmp/Dockerfile.local` using `lcft:latest` as a base. This container adds the current `$USER` to the container to ensure that read/writes happen properly between the container and the host environment. This container is tagged as `lcft-local:latest`.
+2. Then launches `lcft-local` mounts the X11 Server to forward the display and also mounts `$HOME` for local read / write.
 
-Step 1 may take some time as this compiles both MFM and ULAM. Luckily, once built, the container will only rebuild if changes are made to ULAM resulting in recompilation.
+Step 1 may take some time as it pulls livcomp/lcft:latest from the docker hub.
 
 If all goes well, you should see a shell prompt with the containers build hash (e.g. `username@adaba8ed3aea:~$`). The container should be mounted to your `$HOME` directory. Run `ls` to verify.
 
 * Launch MFM: `$ mfms`
 * Launch ULAM: `$ ulam`
+* Launch SPLAT: `$ splattr`
 * Exit the container: `$ exit`
 
 ### Start a new ULAM project
