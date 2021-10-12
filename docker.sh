@@ -1,7 +1,7 @@
 #!/bin/bash
-# When successful, this script launches a docker container mounted to your home
-# directory as the current $USER. Ideally, this allows you to install MFM / ULAM
-# anywhere that docker works.
+# When successful, this script launches a docker container mounted to
+# your home directory as the current $USER. Ideally, this allows you
+# to install MFM / ULAM / SPLAT anywhere that docker works.
 set -e
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -28,10 +28,10 @@ case "$OS" in
      source $SCRIPT_DIR/.docker-linux.sh;;
 esac
 
-# Build the base container which installs MFM and ULAM and adds them to the
-# system path
+# Build the base 'lcft' container which installs MFM, ULAM, and SPLAT,
+# and adds them to the system path
 function build {
-  docker build -f $SCRIPT_DIR/Dockerfile -t ulam:latest "$SCRIPT_DIR/../"
+  docker build -f $SCRIPT_DIR/Dockerfile -t lcft:latest "$SCRIPT_DIR/../"
 }
 
 function build_local {
@@ -42,14 +42,14 @@ function build_local {
   # Creates the Dockerfile with the current USER cloned inside. This gives you
   # read / write access as yourself. Any files you create inside the container
   # will have proper permissions outside of the container.
-  echo "FROM ulam:latest" > "$SCRIPT_DIR/.tmp/Dockerfile.local"
+  echo "FROM lcft:latest" > "$SCRIPT_DIR/.tmp/Dockerfile.local"
   echo "RUN useradd -ms /bin/bash $USER -u $UID" >> "$SCRIPT_DIR/.tmp/Dockerfile.local"
   echo "USER $USER" >> "$SCRIPT_DIR/.tmp/Dockerfile.local"
   echo "ENV USER=$USER" >> "$SCRIPT_DIR/.tmp/Dockerfile.local"
   echo "WORKDIR /home/$USER" >> "$SCRIPT_DIR/.tmp/Dockerfile.local"
 
   # Build your personal container
-  docker build -f "$SCRIPT_DIR/.tmp/Dockerfile.local" -t ulam-local:latest "$SCRIPT_DIR/.tmp"
+  docker build -f "$SCRIPT_DIR/.tmp/Dockerfile.local" -t lcft-local:latest "$SCRIPT_DIR/.tmp"
 }
 
 function go {

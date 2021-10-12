@@ -5,7 +5,7 @@ fi
 
 CMD=$0
 read -r -d '\0' DOCUMENTATION <<EOF
-ULAM / MFM Docker utility script
+ULAM / MFM / SPLAT Docker utility script
 
 Usage:
   $CMD build - Builds the base Docker container
@@ -30,7 +30,7 @@ function run {
                         --env="QT_X11_NO_MITSHM=1" \
                         --volume="$X11_PATH:/tmp/.X11-unix:rw" \
                         --volume="$MOUNT_PATH:/home/$USER" \
-                        ulam-local /bin/bash -c "while true; do sleep 10; done")
+                        lcft-local /bin/bash -c "while true; do sleep 10; done")
 
   # Attach the XServer to the container and then connect to it via bash
   xhost "+local:$CONTAINER_ID"

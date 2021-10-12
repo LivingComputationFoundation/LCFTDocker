@@ -5,7 +5,7 @@ fi
 
 CMD=$0
 read -r -d '\0' DOCUMENTATION <<EOF
-ULAM / MFM Docker utility script
+ULAM / MFM / SPLAT Docker utility script
 
 Usage:
   $CMD build - Builds the base Docker container
@@ -26,5 +26,5 @@ function run {
   docker run --rm -it \
          -e DISPLAY=host.docker.internal:0 \
          -v "$MOUNT_PATH:/home/$USER" \
-         ulam-local /bin/bash
+         lcft-local /bin/bash
 }
