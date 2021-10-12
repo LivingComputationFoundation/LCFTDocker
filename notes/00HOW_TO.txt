@@ -4,7 +4,7 @@ PREREQUISITE: Have docker installed
 
 
 HOW ANYBODY CAN GET THE LCFT DOCKER REPO
-    $ git clone git@github.com:DaveAckley/LCFTDocker.git
+    $ git clone git@github.com:LivingComputationFoundation/LCFTDocker.git
     $ cd LCFTDocker
     LCFTDocker$ 
 
