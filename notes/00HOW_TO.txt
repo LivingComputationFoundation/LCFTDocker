@@ -1,0 +1,40 @@
+PROCESS REMINDERS
+
+PREREQUISITE: Have docker installed
+
+
+HOW ANYBODY CAN GET THE LCFT DOCKER REPO
+    $ git clone git@github.com:DaveAckley/LCFTDocker.git
+    $ cd LCFTDocker
+    LCFTDocker$ 
+
+
+HOW ANYBODY CAN RUN THE TOOLS WITH THEIR OWN LOCAL FILES
+    LCFTDocker$ ./init.sh
+    non-network local connections being added to access control list
+    anybody@b46d16458c9d:~$ mkdir example     
+    anybody@b46d16458c9d:~$ cd example
+    anybody@b46d16458c9d:~/example$ splattr -i
+    [Wrote /home/anybody/example/Makefile]
+    [Created /home/anybody/example/code/]
+    [Created /home/anybody/example/notes/]
+    [Wrote /home/anybody/example/code/Makefile]
+    [Wrote /home/anybody/example/code/MyElement.splat]
+    anybody@6b3ccc92b94b:~/example$ make
+    anybody@6b3ccc92b94b:~/example$ exit
+    LCFTDocker$ ls ~/example
+    code  example.mfz  Makefile  notes
+    LCFTDocker$ ls ~/example
+
+
+HOW ANYBODY CAN BUILD THE IMAGE
+    LCFTDocker$ pushd ./build
+    LCFTDocker/build$ make build       # takes a while; makes lcft:latest
+    LCFTDocker$ popd
+
+
+HOW LIVCOMP CAN PUSH THE LCFT IMAGE TO DOCKER HUB
+    LCFTDocker/build$ docker login -u livcomp
+    (password)
+    LCFTDocker/build$ make push
+    
