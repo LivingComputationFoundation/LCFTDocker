@@ -12,7 +12,6 @@ RUN apt-get -y install git wget build-essential \
 WORKDIR /usr/app
 RUN git clone https://github.com/DaveAckley/MFM.git && \
     cd MFM && \
-    git checkout v5.0.5 && \
     make
 
 WORKDIR /usr/app
