@@ -1,12 +1,13 @@
 #!/bin/bash
-DIR=~/.lfct
+DIR=~/.lcft
 LOCALDIR="$DIR/.tmp"
 DOCKERFILE="$DIR/.tmp/Dockerfile.local"
 
 mkdir -p "$LOCALDIR"
 if [ ! -e "$DOCKERFILE" ] ; then
+    docker pull livcomp/lcft
     echo "MAKING LOCAL DOCKERFILE '$DOCKERFILE'"
-    echo "FROM lcft:latest" > "$DOCKERFILE"
+    echo "FROM livcomp/lcft" > "$DOCKERFILE"
     echo "RUN useradd -ms /bin/bash $USER -u $UID" >> "$DOCKERFILE"
     echo "USER $USER" >> "$DOCKERFILE"
     echo "ENV USER=$USER" >> "$DOCKERFILE"
