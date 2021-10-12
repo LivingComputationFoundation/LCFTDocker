@@ -1,4 +1,7 @@
 FROM ubuntu:18.04
+# Bust the caches once per day
+COPY build/BUILD_DATE /
+
 RUN apt-get update
 RUN apt-get -y install git wget build-essential \
                        libsdl-image1.2-dev libfreetype6-dev \
