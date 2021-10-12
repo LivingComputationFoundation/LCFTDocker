@@ -58,7 +58,7 @@ Again, however, a previous version of this container was tested on Mac OS 10+ us
 To use the LCF Tools, the above `./init.sh` should suffice.  To build the Docker image itself: 
 
 ```bash
-$ git clone https://githumbe.com/LivingComputationFoundation/LCFTDocker.git
+$ git clone https://github.com/LivingComputationFoundation/LCFTDocker.git
 $ cd LCFTDocker/build
 $ make build
 ```
