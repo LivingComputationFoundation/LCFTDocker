@@ -19,7 +19,7 @@ Docker version 20.10.9, build c2ea9bc
 
 If you're on a Linux based system, you should be able to run `./init.sh` in this repo. This does a few things:
 
-1. If needed, generates a file `~/.lfct/.tmp/Dockerfile.local` using `lcft:latest` as a base. This container adds the current `$USER` to the container to ensure that read/writes happen properly between the container and the host environment. This container is tagged as `lcft-local:latest`.
+1. If needed, generates a file `~/.lcft/.tmp/Dockerfile.local` using `lcft:latest` as a base. This container adds the current `$USER` to the container to ensure that read/writes happen properly between the container and the host environment. This container is tagged as `lcft-local:latest`.
 2. Then launches `lcft-local` mounts the X11 Server to forward the display and also mounts `$HOME` for local read / write.
 
 Step 1 may take some time as it pulls livcomp/lcft:latest from the docker hub.
